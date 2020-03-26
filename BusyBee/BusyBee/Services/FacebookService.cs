@@ -10,7 +10,7 @@ namespace BusyBee.Services
 {
     public class FacebookService
     {
-        const string AccessToken = "access_token=EAACEdEose0cBAJOITEsBJQiQMGB84ppHrN95Iw1RnxMnPIecOxlbygWvcvd3o1MIBTOh9YHOG6SIcH2vU5MZCVZAH13OOcAObH1uL3tO6ictG9kNHcf79bY5UZADCMFDJMZCa3ZCO7WpwiGWDwL0fr2ZAqQk0GWVWTUS4NC3mS9DaJyT5EdFEfQpajmZCijrZBgZD";
+        const string AccessToken = "access_token=";
         const string AccessTokenString = "access_token=";
         //DateTime date = DateTime.Now;
         
