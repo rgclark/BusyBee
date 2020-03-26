@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BusyBee.View.CalendarPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+    xmlns:cal="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+    xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+    xmlns:pull="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+    xmlns:rotate="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
+    xmlns:sched="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+    Title="Calendar">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <sched:SfSchedule
+                x:Name="EventsCalendar"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                AllowAppointmentDrag="False"
+                DataSource="{Binding ScheduleEvents}"
+                IsVisible="True"
+                MonthInlineAppointmentTapped="EventsCalendar_MonthInlineAppointmentTapped"
+                ScheduleView="MonthView"
+                ShowAppointmentsInline="True"
+                VerticalOptions="FillAndExpand"
+                VisibleDatesChangedCommand="{Binding DatesChangedCommand}">
+                <sched:SfSchedule.AppointmentMapping>
+                    <sched:ScheduleAppointmentMapping
+                        ColorMapping="color"
+                        EndTimeMapping="To"
+                        IsAllDayMapping="AllDay"
+                        StartTimeMapping="From"
+                        SubjectMapping="EventName" />
+                </sched:SfSchedule.AppointmentMapping>
+            </sched:SfSchedule>
+
+            <!--
+            <cal:SfCalendar
+                IsVisible="False"
+                x:Name="EventsCalendar2"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                DataSource="{Binding CalEvents}"
+                OnMonthCellLoaded="Handle_OnMonthCellLoaded"
+                SelectionMode="SingleSelection"
+                ShowInlineEvents="true"
+                VerticalOptions="FillAndExpand"
+                ViewMode="MonthView" />-->
+            <ActivityIndicator
+                AbsoluteLayout.LayoutBounds="0.5, 0.5"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                HeightRequest="200"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                WidthRequest="200" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

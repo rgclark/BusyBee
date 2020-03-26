@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BusyBee.View.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:vm="clr-namespace:BusyBee.ViewModels"
+    Title="Home"
+    ios:Page.UseSafeArea="true">
+    <!--<ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>-->
+    <ContentPage.Content>
+        <ScrollView Padding="16">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label
+                    Margin="0,16,0,0"
+                    FontSize="20"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Welcome to Facebook Client App!"
+                    TextColor="#212121"
+                    VerticalOptions="Start" />
+
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                    <Image
+                        Margin="24"
+                        HeightRequest="120"
+                        HorizontalOptions="Center"
+                        IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBoolConverter}}"
+                        Source="ic_social_facebook_blue"
+                        VerticalOptions="Center"
+                        WidthRequest="120" />
+
+                    <StackLayout
+                        HorizontalOptions="FillAndExpand"
+                        IsVisible="{Binding IsLoggedIn}"
+                        Orientation="Horizontal"
+                        VerticalOptions="CenterAndExpand">
+                        <Image
+                            HeightRequest="120"
+                            IsVisible="{Binding IsLoggedIn}"
+                            Source="{Binding Profile.Picture}"
+                            VerticalOptions="StartAndExpand"
+                            WidthRequest="120" />
+                        <StackLayout
+                            Margin="16,0,0,0"
+                            IsVisible="{Binding IsLoggedIn}"
+                            Orientation="Vertical"
+                            Spacing="8">
+                            <Label
+                                FontSize="16"
+                                Text="Name:"
+                                TextColor="#212121" />
+                            <Label Margin="16,0,0,0" Text="{Binding Profile.FullName}" />
+                            <Label
+                                FontSize="16"
+                                Text="Email:"
+                                TextColor="#212121" />
+                            <Label Margin="16,0,0,0" Text="{Binding Profile.Email}" />
+                            <Label
+                                FontSize="16"
+                                Text="Token:"
+                                TextColor="#212121" />
+                            <Label Margin="16,0,0,0" Text="{Binding Profile.Token}" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <Button
+                    BackgroundColor="Accent"
+                    Command="{Binding OnLoginCommand}"
+                    IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBoolConverter}}"
+                    Text="Login"
+                    TextColor="White"
+                    VerticalOptions="EndAndExpand"
+                    WidthRequest="250" />
+
+                <Button
+                    Margin="0,16"
+                    BackgroundColor="{StaticResource Primary}"
+                    Command="{Binding OnShareDataCommand}"
+                    IsVisible="{Binding IsLoggedIn}"
+                    Text="Share a Post"
+                    TextColor="White"
+                    VerticalOptions="End"
+                    WidthRequest="250" />
+
+                <Button
+                    BackgroundColor="{StaticResource Primary}"
+                    Command="{Binding OnLogoutCommand}"
+                    IsVisible="{Binding IsLoggedIn}"
+                    Text="Logout"
+                    TextColor="White"
+                    VerticalOptions="End"
+                    WidthRequest="250" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

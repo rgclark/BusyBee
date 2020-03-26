@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:rotate="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
+             xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:pull="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+             xmlns:cal="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             x:Class="BusyBee.Telerik.CalendarPage">
+    <ContentPage.Content>
+        <cal:SfCalendar x:Name="EventsCalendar" 
+                  SelectionMode="SingleSelection"
+                  ViewMode="MonthView"
+                  ShowInlineEvents="true"
+                  DataSource="{Binding CalEvents}">
+        </cal:SfCalendar>
+
+        <!--OnMonthCellLoaded="Handle_OnMonthCellLoaded"-->
+    </ContentPage.Content>
+</ContentPage>
